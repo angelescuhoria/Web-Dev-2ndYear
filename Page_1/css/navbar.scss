@@ -1,0 +1,261 @@
+@media (min-width: 511px) {
+
+header {
+  position: absolute;
+  width: 100%;
+  height: auto;
+
+  .hamburger, .toggle {
+    display: none;
+  }
+
+  nav {
+    width: 100%;
+    height: auto;
+    margin-top: 3vh;
+
+    .menu {
+      float: right;
+      list-style: none;
+      margin-right: 2vw;
+      position: relative;
+
+      .nav-link {
+        position: relative;
+        text-align: center;
+        float: left;
+        display: inline-block;
+        margin: 0 1vw;
+        padding: 0 1vw;
+
+        &:hover .submenu {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        @for $i from 1 through 5 {
+          &:nth-child(#{$i}):hover::after, &:focus::after {
+            content: '';
+            position: absolute;
+            background: linear-gradient(90deg, rgba(232,67,147,1) 0%, rgba(52,73,94,1) 100%);
+            height: 0.3vh;
+            bottom: 0;
+            right: 0;
+            animation: borderanim 1s forwards;
+          }
+        }
+
+        .link, .sublink {
+          color: #dff9fb;
+          text-decoration: none;
+          line-height: 5vh;
+          font-size: calc(0.9vw + 0.6vh);
+          font-family: Comfortaa;
+          font-weight: bold;
+          text-shadow: 0 0 0.075vw #1b1b1b;
+
+          i {
+            display: none;
+          }
+        }
+
+        .submenu {
+          list-style: none;
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+
+          .nav-sublink {
+            white-space: nowrap;
+            position: relative;
+            margin: 0;
+            padding: 0 1vw;
+            float: none;
+            display: list-item;
+
+            &:hover {
+              background-color: #34495e;
+
+              .sublink {
+                color: #e84393;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes borderanim {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.nav-link {
+  &:hover .submenu {
+    transform: scaleY(1);
+  }
+
+  .submenu {
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform 0.75s ease;
+  }
+}
+
+}
+
+@media (min-width: 511px) and (max-width: 1024px) {
+  header {
+    padding: 0 5vw;
+
+    nav {
+      margin-top: 0;
+
+      .menu {
+        margin-right: -5vw;
+        background-color: rgba(52, 73, 94, 0.5);
+        .nav-sublink {
+          background-color: rgba(52, 73, 94, 0.5);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width:510px) {
+
+  .toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 5vw;
+    height: 4vh;
+    opacity: 0;
+
+    &:checked {
+      & ~ nav {
+        animation: theboys 1s forwards;
+      }
+    }
+  }
+
+  .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 5vh;
+    background-color: rgba(30, 39, 46, 1);
+    display: flex;
+    align-items: center;
+
+    div {
+      position: relative;
+      width: 5%;
+      height: 0.3vh;
+      background-color: #2bcbba;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        top: -1vh;
+        width: 100%;
+        height: 0.3vh;
+        background-color: inherit;
+      }
+
+      &::after {
+        top: 1vh;
+      }
+    }
+  }
+
+  nav {
+    left: 0;
+    top: 5vh;
+    width: 100%;
+    position: absolute;
+    transform: rotate(-90deg);
+    transform-origin: top left;
+
+    .menu, .submenu {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu {
+      .link {
+        display: block;
+        background-color: rgba(30, 39, 46, 1);
+        font-family: Comfortaa;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 1.5vh;
+        color: #2bcbba;
+
+        &:hover {
+          background-color: rgba(53, 59, 72, 0.7);
+      }
+
+      span {
+        display: none;
+      }
+
+      i {
+        display: block;
+      }
+
+    }
+  }
+
+    .menu .nav-link:hover .submenu {
+      display: block;
+      max-height: 30vh;
+    }
+
+    .submenu .sublink {
+      font-family: Comfortaa;
+      font-weight: bold;
+      background-color: rgba(30, 39, 46, 1);
+      display: block;
+      text-decoration: none;
+      padding: 1.5vh;
+      color: #2bcbba;
+
+      &:hover {
+        background-color: rgba(53, 59, 72, 0.7);
+      }
+    }
+
+    .submenu {
+      overflow: hidden;
+      max-height: 0;
+      transition: all 0.5s ease-out;
+    }
+  }
+}
+
+@keyframes theboys {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    transform: rotate(0deg);
+    transform-origin: top left;
+    visibility: visible;
+    opacity: 1;
+  }
+}

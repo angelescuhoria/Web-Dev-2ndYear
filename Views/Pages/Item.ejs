@@ -1,0 +1,79 @@
+<head>
+  <%- include('../partial/head') %>
+  <title>Item</title>
+  <style media="screen">
+    header {
+      position: absolute;
+    }
+    h1 {
+      position: absolute;
+      font-family: 'Poppins';
+      font-weight: bold;
+      font-size: calc(3vw + 1.15vh);
+      color: var(--color1);
+      top: -0.5vh;
+    }
+    .show {
+      height: auto;
+      margin-top: 15vh;
+      margin-bottom: 15vh;
+      margin-left: 5vw;
+    }
+    .name, p {
+      color: #2bcbba;
+      text-decoration: none;
+      line-height: 5vh;
+      font-size: calc(0.9vw + 0.6vh);
+      font-family: Comfortaa;
+      font-weight: bold;
+      text-shadow: 0 0 0.075vw #1b1b1b;
+    }
+
+    .price, .description, .food_order, .food_type, .content, .ingredients, .introduced {
+      text-decoration: none;
+      color: #dff9fb;
+      line-height: 5vh;
+      font-size: calc(0.6vw + 0.6vh);
+      font-family: Comfortaa;
+      font-weight: bold;
+      text-shadow: 0 0 0.075vw #1b1b1b;
+    }
+
+    .quantity {
+      color: #e74c3c;
+      text-decoration: none;
+      line-height: 5vh;
+      font-size: calc(0.6vw + 0.6vh);
+      font-family: Comfortaa;
+      font-weight: bold;
+      text-shadow: 0 0 0.075vw #1b1b1b;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <%- include('../partial/header') %>
+  <h1>Item Page</h1>
+</header>
+<main>
+  <section class = "show">
+        <article id="art_food">
+            <h2><span class="name"><%- locals.prod.name %></span></h2>
+            <p>Price: <span class="price"><%- locals.prod.price %> $</span></p>
+            <p>Description: <span class="description"><%- locals.prod.description %> </span></p>
+            <p>Order: <span class="food_order"><%- locals.prod.food_order %> </span></p>
+            <p>Type: <span class="food_type"><%- locals.prod.food_type %> </span></p>
+            <p>Quantity: <span class="quantity"><%- locals.prod.quantity %> g</span></p>
+            <p>Meat type: <span class="content"><%- locals.prod.content %> </span></p>
+            <p>Ingredients: <span class="ingredients"><%- locals.prod.ingredients %> </span></p>
+            <p>Introduced in: <span class="introduced"><%- locals.prod.out_of_order %> </span></p>
+            <figure class="imag_food">
+                <img  src="/Page_1/pictures/Menu/<%- prod.image %>" alt="[image <%- locals.prod.name %>]" />
+            </figure>
+            </article>
+  </section>
+</main>
+<footer id="findus">
+  <%- include('../partial/footer') %>
+</footer>
+</body>

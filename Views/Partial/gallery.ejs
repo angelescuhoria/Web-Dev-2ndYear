@@ -1,0 +1,13 @@
+<h2>Some Photos from our place</h2>
+<div id="gallery_grid">
+
+  <%  for(let imag of locals.imagini){ %>
+    <%  if(imag.time == imag.quarter) {  %>
+      <figure id="figure">
+        <picture>
+            <img src="<%- imag.mare %>" alt="text" id="picture">
+        </picture>
+      </figure>
+      <%  } %>
+    <% } %>
+</div>

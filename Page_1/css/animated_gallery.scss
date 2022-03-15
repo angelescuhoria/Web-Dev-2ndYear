@@ -1,0 +1,69 @@
+$nr_pictures : 5 + random(8);
+
+#anim_gallery {
+  margin: 5vh auto;
+	width: 400px;
+	height: 300px;
+	border: 3px solid black;
+	position: relative;
+	overflow: hidden;
+
+  #_figure {
+  	position:absolute;
+  	width: 400px;
+  	height: 300px;
+  	left: 0;
+  	top: 0;
+    opacity: 0;
+  	z-index: 0;
+    clip-path: polygon(0 100%, 100% 0, 100% 0, 100% 0, 0 100%, 0 100%);
+    animation-name: diagonala;
+  	animation-timing-function: linear;
+  	animation-iteration-count: infinite;
+  	animation-fill-mode: forwards;
+  	animation-duration: ($nr_pictures - 1) * 3s;
+
+    @for $j from ($nr_pictures + 1) through 14 {
+      &:nth-of-type(#{$j}) {
+         display: none;
+      }
+    }
+
+    @for $i from $nr_pictures through 1 {
+      &:nth-of-type(#{$i}) {
+        animation-delay: ($nr_pictures - $i) * 3s;
+    }
+
+    #_picture {
+      width: 400px;
+    	height: 300px;
+    }
+
+    figcaption {
+      bottom: 0.6vh;
+      position: absolute;
+      text-align: center;
+      font-family: Comfortaa;
+      font-size: calc(1vw + 1vh);
+      width: 100%;
+      background-color: rgba(236, 240, 241, 0.81);
+      height: auto;
+    }
+  }
+}
+}
+
+@keyframes diagonala {
+  0% {
+    z-index: 10;
+    opacity: 1;
+  }
+  5% {
+     clip-path: polygon(0 1%, 1% 0, 100% 0, 100% 99%, 99% 100%, 0 100%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: polygon(0 0, 0 0, 100% 0, 100% 100%, 100% 100%, 0 100%);
+    z-index: -20;
+  }
+}:hover {animation-play-state: paused;}

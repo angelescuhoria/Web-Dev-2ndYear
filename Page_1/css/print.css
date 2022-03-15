@@ -1,0 +1,70 @@
+@media print {
+  body {
+    margin-top: 250px;
+  }
+  body #banner {
+    position: absolute;
+    bottom: 93%;
+    margin: 0 15%;
+    width: 80%;
+    border: 1px dotted black;
+    display: block;
+    animation: none !important;
+  }
+
+  #aboutus {
+    margin-top: 750px;
+    position: relative;
+    break-inside: avoid;
+  }
+
+  #services {
+    margin-top: 325px;
+    page-break-before: always;
+    break-inside: avoid;
+  }
+
+  #people {
+    margin-top: 125px;
+  }
+
+  #findus {
+    margin-top: 50px;
+  }
+
+
+  .container #svg, #ser1 img, #ser2 img, #ser3 img, body #top, #iframe, header, #gallery, #animated_gallery, hr {
+    display: none;
+  }
+
+  main .container p {
+    display: none;
+    position: relative;
+  }
+
+  main .container h1 {
+    left: 25%;
+    top: 45%;
+    text-decoration: underline;
+    animation: none !important;
+  }
+
+  body #watermark {
+    display: block;
+    position: fixed;
+    width: 100px;
+    height: 50px;
+    bottom: 5px;
+    right: 5px;
+    border: 1px double black;
+    opacity: 0.65;
+    color: black;
+    text-align: center;
+    z-index: 5;
+  }
+
+  body #watermark p {
+    font-size: 20px;
+  }
+
+}

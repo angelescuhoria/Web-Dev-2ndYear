@@ -1,0 +1,163 @@
+<head>
+  <%- include('../partial/head') %>
+  <title>Restaurant</title>
+  <style media="screen">
+
+    header {
+      position: absolute;
+    }
+
+    h1 {
+      position: absolute;
+      font-family: 'Poppins';
+      font-weight: bold;
+      font-size: calc(3vw + 1.15vh);
+      color: var(--color1);
+      top: -0.5vh;
+    }
+
+    .list {
+      height: auto;
+      position: relative;
+      top: 20vh;
+      margin-bottom: 15vh;
+    }
+
+    h3 {
+      color: #2bcbba;
+      text-decoration: none;
+      line-height: 5vh;
+      font-size: calc(0.9vw + 0.6vh);
+      font-family: Comfortaa;
+      font-weight: bold;
+      text-shadow: 0 0 0.075vw #1b1b1b;
+    }
+
+    h3 a {
+      text-decoration: none;
+      color: #dff9fb;
+      line-height: 5vh;
+      font-size: calc(0.9vw + 0.6vh);
+      font-family: Comfortaa;
+      font-weight: bold;
+      text-shadow: 0 0 0.075vw #1b1b1b;
+    }
+
+    .grid_food {
+      display: grid;
+      height: auto;
+      margin: 5vh;
+      grid-gap: 5px;
+    }
+
+    .price, .food_order, .select_delivery {
+      font-family: Poppins;
+      font-size: calc(0.525vw + 0.6vh);
+      color: #dff9fb;
+    }
+
+    .val_food_order {
+      color: #e74c3c;
+    }
+
+    @media screen and (min-width: 1200px)
+    {
+        .grid_food .foods:nth-child(15)
+        {
+            grid-area: 5/3/6/4;
+        }
+        .grid_food .foods:nth-child(14)
+        {
+            grid-area: 4/3/5/4;
+        }
+        .grid_food .foods:nth-child(13)
+        {
+            grid-area: 3/3/4/4;
+        }
+        .grid_food .foods:nth-child(12)
+        {
+            grid-area: 2/3/3/4;
+        }
+        .grid_food .foods:nth-child(11)
+        {
+            grid-area: 1/3/2/4;
+        }
+        .grid_food .foods:nth-child(10)
+        {
+            grid-area: 5/2/6/3;
+        }
+
+        .grid_food .foods:nth-child(9)
+        {
+            grid-area: 4/2/5/3;
+        }
+
+        .grid_food .foods:nth-child(8)
+        {
+            grid-area: 3/2/4/3;
+        }
+
+        .grid_food .foods:nth-child(7)
+        {
+            grid-area: 2/2/3/3;
+        }
+        .grid_food .figure:nth-child(6)
+        {
+            grid-area: 1/2/2/3;
+        }
+        .grid_food .foods:nth-child(5)
+        {
+            grid-area: 5/1/6/2;
+        }
+        .grid_food .foods:nth-child(4)
+        {
+            grid-area: 4/1/5/2;
+        }
+        .grid_food .foods:nth-child(3)
+        {
+            grid-area: 3/1/4/2;
+        }
+        .grid_food .foods:nth-child(2)
+        {
+            grid-area: 2/1/3/2;
+        }
+        .grid_food .foods:nth-child(1)
+        {
+            grid-area: 1/1/2/2;
+        }
+
+    }
+
+  </style>
+</head>
+<body>
+<header>
+  <%- include('../Partial/header') %>
+  <h1>Chef's Top Picks</h1>
+</header>
+<main>
+  <section class = "list">
+    <div class="grid_food">
+        <% for( let prod of locals.foods) { %>
+            <article class="foods">
+                <h3 class="name">Name: <a href="/foods/<%-prod.name %>" ><span class="val_name"><%- prod.name%></span></a></h3>
+                <div class="info-prod">
+                    <p class="price">Price: <span class="val_price"><%- prod.price%></span>$</p>
+                </div>
+                <p class="food_order">Type: <span class="val_food_order"><%- prod.food_order%></span></p>
+                <figure>
+                    <a href="/Views/Pages/Item/<%-prod.id_food %>" ><img src="/Page_1/pictures/Menu/<%- prod.image %>" alt="[image <%- prod.name %>]" /></a>
+                </figure>
+                <label class="select_delivery">
+                    Select for delivery:
+                    <input type="checkbox" class="select-cos" value="<%-prod.id_food %>" autocomplete="off">
+                </label>
+            </article>
+        <% }%>
+    </div>
+  </section>
+</main>
+<footer id="findus">
+  <%- include('../partial/footer') %>
+</footer>
+</body>

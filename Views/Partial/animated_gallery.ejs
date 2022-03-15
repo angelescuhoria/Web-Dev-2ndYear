@@ -1,0 +1,12 @@
+<h2>Animated gallery</h2>
+<div id="anim_gallery">
+  <%  for(let imag of locals.imagini){ %>
+      <figure id="_figure">
+        <picture>
+            <img src="<%- imag.mare %>" alt="text" id="_picture">
+        </picture>
+        <figcaption><%-imag.titlu%></figcaption>
+      </figure>
+    <% } %>
+
+</div>

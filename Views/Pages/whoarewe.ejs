@@ -1,0 +1,51 @@
+<head>
+  <%- include('../partial/head') %>
+  <style>
+    body {
+      background: rgb(223,249,251);
+      background: linear-gradient(0deg, rgba(223,249,251,1) 0%, rgba(52,73,94,1) 100%);
+    }
+    #whoarewe {
+      position: relative;
+      width: 80%;
+      height: auto;
+      margin: auto;
+      margin-top: 25vh;
+      margin-bottom: 10vh;
+      background-color: rgba(53, 59, 72, 0.7);
+    }
+
+    #whoarewe h2 {
+      padding-top: 3vh;
+    }
+
+    #whoarewe h2::first-letter {
+      color: #2bcbba;
+    }
+
+    #whoarewe p {
+      padding-bottom: 3vh;
+    }
+
+    #whoarewe p span {
+      color: #2bcbba;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <%- include('../partial/header') %>
+  </header>
+  <main>
+    <section id = "whoarewe">
+      <h2>Who are we?</h2>
+      <p><span>Submersive</span> is a 5 star resort which also includes a private beach for our tourists. Situated on the coast of the Black Sea, our services are available in Constnata, Romania. As a large scale hotel, we provide wellness services such as an olympic sized pool, a fitness gym and multiple sport centers. We offer our guests over 700 available rooms, packed with state of the art amenities, which span three buildings of each 15 floors. <br><a href="https://www.youtube.com/watch?v=IGKLQ16vLxU" target="_blank">Check us out by <strong>clicking me!</strong></a> A list with our services can be found below: </p>
+    </section>
+    <section id="gallery">
+      <%- include('../Partial/gallery') %>
+    </section>
+  </main>
+  <footer id="findus">
+    <%- include('../Partial/footer') %>
+  </footer>
+</body>
