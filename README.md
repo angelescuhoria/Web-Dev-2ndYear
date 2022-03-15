@@ -2,7 +2,7 @@ Web Development project, for the 2nd Year of Uni, presenting a seaside hotel cha
 
 Tehnologies used: HTML / CSS / SASS
 
-Languages: JS
+Languages: JS / EJS
 
 Frameworks: Node.js, Express
 
